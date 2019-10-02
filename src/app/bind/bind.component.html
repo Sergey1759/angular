@@ -1,0 +1,23 @@
+<div class="myconteiner">
+  <h1>Учні ІПЗс-2017</h1>
+  <div *ngFor="let i of arr let index = index"  class="myrow">
+    <input type="checkbox" [checked]="i.checked" [id]="i.id" (click)="onchange(index)" class="form-check-input">
+    <label [for]="i.id" class="form-check-label">{{ i.lastname + "   " + i.name}}</label>
+    <button (click)="remove(index)" type="button" class="btn btn-primary btn-sm"> remove </button>
+    <button (click)="edit(index)" type="button" class="btn btn-primary btn-sm"> edit </button>
+    <div class="edit" *ngIf="i.edit">
+      <hr>
+      last name<input type="text"  [(ngModel)]="i.lastname" [value]="" placeholder="  last name">
+      name<input type="text"  [(ngModel)]="i.name" [value]="" placeholder="    name">
+    </div>
+  </div>
+</div>
+
+<div class="create">
+  <input type="text"  [(ngModel)]="lastname" [value]="valuelastname" placeholder="   last name">
+  <input type="text"  [(ngModel)]="name" [value]="valuename" placeholder="   name">
+  <button (click)="create(name,lastname)"> create </button>
+</div>
+
+
+
