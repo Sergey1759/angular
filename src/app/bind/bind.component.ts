@@ -9,22 +9,22 @@ export class BindComponent implements OnInit {
 
   public arr = localStorage.getItem('myKey') == null ? [
     {
-      name: 'sergey',
-      lastname: 'lisitskiy',
+      name: 'Вова',
+      lastname: 'Купріянов',
       checked: false,
       edit: true,
       id: 0
     },
     {
-      name: 'sergey1',
-      lastname: 'lisitskiy1',
+      name: 'Віталій',
+      lastname: 'Мельник',
       checked: true,
       edit: false,
       id: 1
     },
     {
-      name: 'sergey2',
-      lastname: 'lisitskiy2',
+      name: 'Анатолій',
+      lastname: 'Висоцький',
       checked: false,
       edit: false,
       id: 2
@@ -40,11 +40,11 @@ export class BindComponent implements OnInit {
 
   ngOnInit() {
   }
-  public create(name , lastname) {
+  public create(name , lastname, valueLast, valueName) {
     const id = this.arr.length > 0 ? this.arr[this.arr.length - 1].id + 1 : 0;
     this.arr.push({name, lastname, checked: false, id });
     this.save();
-    this.clearForm();
+    this.clearForm(valueLast, valueName);
   }
   public remove(index) {
     this.arr.splice(index, 1);
@@ -58,9 +58,9 @@ export class BindComponent implements OnInit {
     const serialObj = JSON.stringify(this.arr);
     localStorage.setItem('myKey', serialObj);
   }
-  private clearForm() {
-    console.log();
-    this.valuelastname = '';
+  private clearForm(valueLast, valueName) {
+    valueLast.value = '';
+    valueName.value = '';
   }
   public edit(index) {
     this.arr[index].edit =  !this.arr[index].edit;

@@ -6,17 +6,20 @@
     <button (click)="remove(index)" type="button" class="btn btn-primary btn-sm"> remove </button>
     <button (click)="edit(index)" type="button" class="btn btn-primary btn-sm"> edit </button>
     <div class="edit" *ngIf="i.edit">
-      <hr>
-      last name<input type="text"  [(ngModel)]="i.lastname" [value]="" placeholder="  last name">
-      name<input type="text"  [(ngModel)]="i.name" [value]="" placeholder="    name">
+      <div>
+        <p>last name</p><input type="text"  [(ngModel)]="i.lastname"  placeholder=" last name">
+      </div>
+      <div>
+        <p>name</p><input type="text"  [(ngModel)]="i.name" placeholder=" name">
+      </div>
     </div>
   </div>
 </div>
 
 <div class="create">
-  <input type="text"  [(ngModel)]="lastname" [value]="valuelastname" placeholder="   last name">
-  <input type="text"  [(ngModel)]="name" [value]="valuename" placeholder="   name">
-  <button (click)="create(name,lastname)"> create </button>
+  <input type="text"  [(ngModel)]="lastname" [value]="valuelastname" placeholder="   last name" #valueLast>
+  <input type="text"  [(ngModel)]="name" [value]="valuename" placeholder="   name" #valueName>
+  <button (click)="create(name,lastname,valueLast,valueName)"> create </button>
 </div>
 
 

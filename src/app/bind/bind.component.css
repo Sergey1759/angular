@@ -33,6 +33,14 @@
 .edit{
   padding: 15px;
 }
+.edit div{
+  margin: 10px;
+}
+.edit div p{
+  display: inline-block;
+  width: 110px;
+  margin: 0;
+}
 .create{
   position: fixed;
   z-index: 1001;
